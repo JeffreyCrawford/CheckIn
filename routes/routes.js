@@ -12,21 +12,19 @@ module.exports = (app, db, nodemailer) => {
             });
     });
 
-    app.get("/api/attendees", function(req, res) {
-        db.attendees.findAll({
-            }).then(function (data) {
-                res.send(data)
-            });
-    });
-
-
-
     /* Create attendee */
     app.post("/api/attendees", function(req, res) {
 
         db.attendees.create({
             userID: req.body.userID,
-            name: req.body.name
+            name: req.body.name,
+            title: req.body.title,
+            community: req.body.community,
+            county: req.body.county,
+            phone: req.body.phone,
+            email: req.body.email,
+            votingMember: req.body.votingMember,
+            checkInTime: req.body.checkInTime
 
         });
 
@@ -34,25 +32,19 @@ module.exports = (app, db, nodemailer) => {
 
 
 
-    /* Get profiles */
-    app.get("/api/profiles", function(req, res) {
-        db.profiles.findAll({
+    /* Get badges */
+    app.get("/api/badges", function(req, res) {
+        db.badges.findAll({
             }).then(function (data) {
             res.send(data)
             });
     });
 
-    /* Create profile */
-    app.post("/api/profiles", function(req, res) {
-        db.profiles.create({
-            name: req.body.name,
-            email: req.body.email,
-            phone: req.body.phone,
-            organization: req.body.organization,
-            address: req.body.address,
-            city: req.body.city,
-            state: req.body.state,
-            zip: req.body.zip
+    /* Create badge */
+    app.post("/api/badges", function(req, res) {
+        db.badges.create({
+            barCode: req.body.barCode,
+            userID: req.body.userID,
         });
     });
     

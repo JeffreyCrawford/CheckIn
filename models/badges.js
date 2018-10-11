@@ -16,8 +16,6 @@ module.exports = function(sequelize, Sequelize) {
     
     });
 
-    Badge.hasOne(Attendee, { foreignKey: 'userID' })
-
     return Badge;
 }
 

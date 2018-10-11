@@ -27,4 +27,15 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+db.attendees = require('../models/attendees.js')(sequelize, Sequelize);
+db.badges = require('../models/badges.js')(sequelize, Sequelize);
+
+
+/* Associations */
+db.attendees.belongsTo(db.badges)
+db.badges.hasOne(db.attendees);
+
+
+
+
 module.exports = db;

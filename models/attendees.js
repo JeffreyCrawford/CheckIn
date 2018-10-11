@@ -10,7 +10,7 @@ module.exports = function(sequelize, Sequelize) {
 
         name: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: true
         },
 
         title: {
@@ -40,7 +40,7 @@ module.exports = function(sequelize, Sequelize) {
 
         votingMember: {
             type: Sequelize.BOOLEAN,
-            allowNull: false
+            allowNull: true
         },
 
         checkInTime: {

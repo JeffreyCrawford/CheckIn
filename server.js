@@ -7,6 +7,7 @@ const router = require("./routes/index");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const db = require("./config/db.js");
+var seeds = require("./seeds.js");
 
 
 /* Routing and request configuration */
@@ -18,13 +19,12 @@ app.use((req, res, next) => {
   next();
 });
 
-/* router(app, db, nodemailer); */
+router(app, db); 
 
 
 /* Sync to Sequelize and start listening */
-
-db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-    console.log('Express listening on port:', PORT);
-    });
+db.sequelize.sync({force: true}).then(() => {
+	app.listen(PORT, function() {
+	    console.log("Listening on port " + PORT)
+	})
 });
