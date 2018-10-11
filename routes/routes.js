@@ -24,7 +24,8 @@ module.exports = (app, db, nodemailer) => {
             phone: req.body.phone,
             email: req.body.email,
             votingMember: req.body.votingMember,
-            checkInTime: req.body.checkInTime
+            checkInTime: Date.now()
+
 
         });
 

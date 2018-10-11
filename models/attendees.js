@@ -44,7 +44,7 @@ module.exports = function(sequelize, Sequelize) {
         },
 
         checkInTime: {
-            type: Sequelize.STRING,
+            type: Sequelize.DATE,
             allowNull: true
         },
     
