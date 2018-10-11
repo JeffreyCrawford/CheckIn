@@ -16,7 +16,6 @@ module.exports = (app, db, nodemailer) => {
     app.post("/api/attendees", function(req, res) {
 
         db.attendees.create({
-            userID: req.body.userID,
             name: req.body.name,
             title: req.body.title,
             community: req.body.community,

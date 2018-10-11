@@ -1,13 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
     const Attendee = sequelize.define("attendee", {
 
-        userID: {
-            type: Sequelize.STRING,
-            unique: true,
-            allowNull: false,
-            primaryKey: true
-        },
-
         name: {
             type: Sequelize.STRING,
             allowNull: true
