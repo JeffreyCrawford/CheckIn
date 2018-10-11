@@ -25,10 +25,17 @@ module.exports = (app, db, nodemailer) => {
             votingMember: req.body.votingMember,
             checkInTime: Date.now()
 
-
         });
 
     });
+
+    app.put("/api/badges/", function(req, res) {
+        db.badges.update(
+            {attendeeId: req.body.attendeeId},
+            {where: {barCode: req.body.barCode}}
+
+        )
+    })
 
 
 
@@ -44,7 +51,6 @@ module.exports = (app, db, nodemailer) => {
     app.post("/api/badges", function(req, res) {
         db.badges.create({
             barCode: req.body.barCode,
-            userID: req.body.userID,
         });
     });
     

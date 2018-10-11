@@ -2,13 +2,13 @@ module.exports = function(sequelize, Sequelize) {
     const Badge = sequelize.define("badge", {
     
         barCode: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             unique: true,
-            allowNull: true,
+            allowNull: false,
+            primary_key: true
         },
-
-        userID: {
-            type: Sequelize.STRING,
+        attendeeId: {
+            type: Sequelize.INTEGER,
             unique: true
         }
     

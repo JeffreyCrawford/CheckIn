@@ -32,8 +32,7 @@ db.badges = require('../models/badges.js')(sequelize, Sequelize);
 
 
 /* Associations */
-db.attendees.belongsTo(db.badges)
-
+db.badges.belongsTo(db.attendees)
 
 
 
